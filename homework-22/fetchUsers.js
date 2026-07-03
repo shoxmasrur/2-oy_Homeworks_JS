@@ -28,7 +28,7 @@ async function getData(){
 
 
 const server = http.createServer((req,res)=>{
-    if(req.mathod!=="GET"){
+    if(req.method!=="GET"){
         return sendData(res, 404, {message:"Route topilmadi"});
     }
     const parseUrl = new URL(req.url,`http://localhost:${PORT}`);
@@ -37,6 +37,7 @@ const server = http.createServer((req,res)=>{
 
     if(parts.length===1 && parts[0]==="users"){
         let users = readUsers();
+        return sendData(res, 200, users);
 
         
     }
