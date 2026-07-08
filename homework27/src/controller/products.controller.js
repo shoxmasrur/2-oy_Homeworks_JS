@@ -30,3 +30,9 @@ export async function getData(req,res){
     const products = await Product.find();
     res.status(200).json(products)
 }
+
+
+export async function getOneData(req,res){
+    const product = await Product.findById(req.params.id)
+    res.status(200).json(product)
+}
